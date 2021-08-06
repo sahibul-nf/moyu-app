@@ -2,18 +2,15 @@
     <div class="container mx-auto h-screen flex justify-center items-center">
         <div class="w-full lg:w-1/3 px-10 lg:px-0">
           <div class="flex justify-center items-center mx-auto mt-6 mb-8">
-            <img src="/404-illustration.svg" alt="" class="w-full" />
+            <img src="/success-illustration.svg" alt="" class="w-full" />
           </div>
           <h2 class="font-medium mb-3 text-3xl text-center">
-            Oops! something wrong
+            Welcome onboard!
           </h2>
-          <p class="text-center font-light" v-if="error.statusCode === 400">
-            The page that you requsted doesn’t
+          <p class="text-center font-light">
+            Your account just registered
             <br />
-            exist at this moment
-          </p>
-          <p class="text-center font-light" v-else>
-            An error occured
+            into our system
           </p>
           <div class="mb-4 mt-6">
             <div class="mb-3">
@@ -21,7 +18,7 @@
                 @click="$router.push({ path: '/' })"
                 class="block w-full bg-purple-progress hover:bg-green-button text-white font-semibold px-6 py-4 text-lg rounded-full"
               >
-                Back to Home
+                Start Explore
               </button>
             </div>
           </div>
@@ -31,7 +28,6 @@
 
 <script>
 export default {
-    props: ['error'],
-    layout: 'success'
+    layout: "success"
 }
 </script>

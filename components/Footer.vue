@@ -12,16 +12,16 @@
           <div class="mb-8 font-bold">Explore</div>
           <ul class="font-light">
             <li class="mb-3">Our Services</li>
-            <li class="mb-3">Equity System</li>
+            <li class="mb-3">Funding System</li>
             <li class="mb-3">Refund</li>
-            <li class="mb-3">Shareholder</li>
+            <li class="mb-3">Funder</li>
           </ul>
         </div>
         <div class="sm:w-1/4 h-auto">
           <div class="mb-8 font-bold">Supporting</div>
           <ul class="font-light">
             <li class="mb-3">My Account</li>
-            <li class="mb-3">Top Startups</li>
+            <li class="mb-3">Top Events</li>
             <li class="mb-3">How-to Tutorials</li>
             <li class="mb-3">Withdrawl</li>
           </ul>
@@ -30,7 +30,7 @@
           <div class="mb-8 font-bold">Office</div>
           <ul class="font-light">
             <li class="mb-3">+021 2208 1996</li>
-            <li class="mb-3">KBP, Banda Aceh</li>
+            <li class="mb-3">Kota Banda Aceh</li>
             <li class="mb-3">No.12 (Moyu)</li>
             <li class="mb-3">support@moyu.id</li>
           </ul>

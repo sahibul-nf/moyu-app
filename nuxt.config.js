@@ -25,8 +25,7 @@ export default {
         content: 'telephone=no'
       }
     ],
-    link: [
-      {
+    link: [{
         rel: 'icon',
         type: 'image/x-icon',
         href: '/favicon.ico'
@@ -57,12 +56,52 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    // https://auth.nuxtjs.org
+    '@nuxtjs/auth-next',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: "http://192.168.1.36:8080"
+  },
+
+  auth: {
+    strategies: {
+      local: {
+        token: {
+          property: 'data.token',
+          global: true,
+          // required: true,
+          // type: 'Bearer'
+        },
+        user: {
+          property: 'user',
+          // autoFetch: true
+        },
+        endpoints: {
+          register: {
+            url: '/api/v1/users',
+            method: 'post'
+          },
+          login: {
+            url: '/api/v1/sessions',
+            method: 'post'
+          },
+          logout: false,
+          // user: {
+          //   url: '/api/v1/users',
+          //   method: 'get'
+          // },
+          // avatars: {
+          //   url: '/api/v1/avatars',
+          //   method: 'post'
+          // },
+        }
+      }
+    }
+  },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
@@ -72,5 +111,9 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {}
+  build: {},
+
+  generate: {
+    fallback: true
+  }
 }

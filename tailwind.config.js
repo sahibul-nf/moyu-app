@@ -14,6 +14,7 @@ module.exports = {
     extend: {
       boxShadow: {
         outline: "0 0 0 1px rgba(66, 153, 225, 0.5)",
+        bg: "0 4px 25px 0 rgba(0, 0, 0, 0.15)"
       },
       colors: {
         // "orange-button": "#FF872E",

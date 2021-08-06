@@ -14,7 +14,7 @@
       <li>
         <nuxt-link
           class="text-black-font hover:text-teal-500 text-lg px-4 py-3"
-          to="/projects.html"
+          to="/projects/1"
           >Project</nuxt-link
         >
       </li>
@@ -36,7 +36,7 @@
     <ul class="flex ml-auto items-center mt-2">
       <li>
         <nuxt-link
-          to="/register.html"
+          to="/register"
           class="
             inline-block
             bg-transparent
@@ -57,7 +57,7 @@
       </li>
       <li>
         <nuxt-link
-          to="/login.html"
+          to="/login"
           class="
             inline-block
             bg-gray-bg 

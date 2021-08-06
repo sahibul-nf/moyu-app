@@ -28,7 +28,7 @@ body {
   background-image: url("/auth-background.svg");
   background-position: top right;
   background-repeat: no-repeat;
-  background-color: #3b41e3;
+  /* background-color: #3b41e3; */
   background-size: 250px;
   height: 350px;
 }
@@ -83,7 +83,7 @@ body {
 
 .card-project {
   transition: all 0.3s ease 0s, opacity 0.5s cubic-bezier(0.5, 0, 0, 1) 1ms;
-  max-height: 445px;
+  max-height: 470px;
   overflow: hidden;
 }
 .card-project .button-cta {
@@ -117,6 +117,7 @@ footer {
 .testimonial-user {
   opacity: 0.4;
 }
+
 .testimonial-user.active {
   opacity: 1;
   border: 5px solid #fff;
@@ -129,21 +130,23 @@ footer {
 }
 
 .item-thumbnail:hover {
-  background-color: #ff872e;
+  background-color: #3B41E3;
   border-radius: 20px;
 }
+
 .item-thumbnail:hover:after {
   position: absolute;
   top: 38%;
   left: 41%;
   content: url("/icon-thumbnail-hover.svg");
 }
+
 .item-thumbnail:hover img {
   opacity: 0.3;
 }
 
 .auth-page {
-  background-color: #3b41e3;
+  /* background-color: #3b41e3; */
   background-image: url("/auth-background.svg");
   background-position: top right;
   background-repeat: no-repeat;
