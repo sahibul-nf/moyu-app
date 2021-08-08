@@ -59,7 +59,7 @@
           >
             <div>
               <div class="text-black-font font-bold text-xl mb-1">
-                Cari Uang Buat Gunpla
+                Cari sponsor untuk moyu
               </div>
               <p class="text-sm font-light text-black-font flex items-center mb-2">
                 Rp. 200.000.000 &middot; 12 September 2020
