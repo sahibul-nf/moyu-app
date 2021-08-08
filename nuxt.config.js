@@ -7,7 +7,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'moyu-app',
+    title: 'Moyu - For All of Us',
     meta: [{
         charset: 'utf-8'
       },

@@ -15,8 +15,8 @@
               type="text"
               class="auth-form bg-gray-bg focus:outline-none focus:shadow-bg"
               placeholder="Write Your Name Here"
-              v-model="data.fullName"
             />
+              <!-- v-model="data.fullName" -->
           </div>
         </div>
         <div class="mb-6">
@@ -28,8 +28,8 @@
               type="text"
               class="auth-form bg-gray-bg focus:outline-none focus:shadow-bg"
               placeholder="Write your occupation here"
-              v-model="data.occupation"
             />
+              <!-- v-model="data.occupation" -->
           </div>
         </div>
         <div class="mb-6">
@@ -41,8 +41,8 @@
               type="email"
               class="auth-form bg-gray-bg focus:outline-none focus:shadow-bg"
               placeholder="Write your email address here"
-              v-model="data.email"
             />
+              <!-- v-model="data.email" -->
           </div>
         </div>
         <div class="mb-6">
@@ -54,8 +54,8 @@
               type="password"
               class="auth-form bg-gray-bg focus:outline-none focus:shadow-bg"
               placeholder="Type your password here"
-              v-model="data.password"
             />
+              <!-- v-model="data.password" -->
           </div>
         </div>
         <div class="mb-6 mt-10">
@@ -95,14 +95,14 @@
 <script>
 export default {
   layout: 'auth',
-  data() {
-    return {
-      fullName: '',
-      occupation: '',
-      email: '',
-      password: '',
-    }
-  }
+  // data() {
+  //   return {
+  //     fullName: '',
+  //     occupation: '',
+  //     email: '',
+  //     password: '',
+  //   }
+  // }
 }
 </script>
 
