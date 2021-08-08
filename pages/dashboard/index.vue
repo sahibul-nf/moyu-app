@@ -45,7 +45,7 @@
             >
               <div class="mb-8">
                 <div class="text-gray-900 font-bold text-xl mb-1">
-                  Cari Uang Buat Gunpla
+                  Cari Sponsor untuk Moyu
                 </div>
                 <p class="text-sm font-light text-black-font flex items-center mb-2">
                   Rp. 200.000.000 &middot; 80%

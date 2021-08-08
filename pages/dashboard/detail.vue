@@ -49,7 +49,7 @@
           >
             <div>
               <div class="text-black-font font-bold text-xl mb-2">
-                Cari Uang Buat Gunpla
+                Cari Sponsor untuk Moyu
               </div>
               <p
                 class="text-sm font-bold text-black-font flex items-center mb-1"

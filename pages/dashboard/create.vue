@@ -79,7 +79,7 @@
                       focus:shadow-outline
                     "
                     type="text"
-                    placeholder="Contoh: Demi Gunpla Demi Istri"
+                    placeholder="Contoh: Cari sponsor untuk Moyu"
                   />
                 </div>
                 <div class="w-full md:w-1/2 px-3">
