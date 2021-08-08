@@ -15,7 +15,7 @@
               type="text"
               class="auth-form bg-gray-bg focus:outline-none focus:shadow-bg"
               placeholder="Write Your Name Here"
-              v-model=""
+              v-model="data.fullName"
             />
           </div>
         </div>
@@ -28,7 +28,7 @@
               type="text"
               class="auth-form bg-gray-bg focus:outline-none focus:shadow-bg"
               placeholder="Write your occupation here"
-              value="Graphic Designer"
+              v-model="data.occupation"
             />
           </div>
         </div>
@@ -41,7 +41,7 @@
               type="email"
               class="auth-form bg-gray-bg focus:outline-none focus:shadow-bg"
               placeholder="Write your email address here"
-              value="julia.keeva@gmail.com"
+              v-model="data.email"
             />
           </div>
         </div>
@@ -54,7 +54,7 @@
               type="password"
               class="auth-form bg-gray-bg focus:outline-none focus:shadow-bg"
               placeholder="Type your password here"
-              value="nasigorenglimaribbu"
+              v-model="data.password"
             />
           </div>
         </div>
