@@ -16,7 +16,7 @@
               sesuai yang harapan
             </p>
             <button
-              @click="$router.push({ path: '/' })"
+              @click="$router.push({ path: '#events' })"
               class="
                 block
                 bg-green-button
@@ -93,7 +93,7 @@
         </div>
       </div>
     </section>
-    <section class="container mx-auto pt-24">
+    <section id="events" class="container mx-auto pt-24">
       <div class="flex justify-between items-center">
         <div class="w-auto">
           <h2 class="text-3xl text-gray-900 mb-8">
@@ -134,7 +134,16 @@
               />
               <div
                 v-else
-                class="rounded-20 w-full h-60 bg-gray-bg text-gray-300 flex items-center justify-center"
+                class="
+                  rounded-20
+                  w-full
+                  h-60
+                  bg-gray-bg
+                  text-gray-300
+                  flex
+                  items-center
+                  justify-center
+                "
               >
                 <div class="text-2xl">No Image</div>
               </div>
@@ -179,7 +188,12 @@
               </div>
               <div class="flex progress-info">
                 <div>
-                  {{ ((campaign.current_amount / campaign.goal_amount) * 100).toFixed(2) }}%
+                  {{
+                    (
+                      (campaign.current_amount / campaign.goal_amount) *
+                      100
+                    ).toFixed(2)
+                  }}%
                 </div>
                 <div class="ml-auto font-semibold">
                   Rp {{ new Intl.NumberFormat().format(campaign.goal_amount) }}

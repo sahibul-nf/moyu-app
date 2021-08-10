@@ -64,22 +64,18 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: "http://localhost:8080"
+    baseURL: "http://55fb9f38fa7c.ngrok.io"
   },
 
   auth: {
     strategies: {
       local: {
-        token: {
-          property: 'data.token',
-          global: true,
-          // required: true,
-          // type: 'Bearer'
-        },
-        user: {
-          property: 'user',
-          // autoFetch: true
-        },
+        // token: {
+        //   property: 'data.token',
+        //   global: true,
+        //   // required: true,
+        //   // type: 'Bearer'
+        // },
         endpoints: {
           register: {
             url: '/api/v1/users',
@@ -87,12 +83,15 @@ export default {
           },
           login: {
             url: '/api/v1/sessions',
-            method: 'post'
+            method: 'post',
+            propertyName: 'data.token'
           },
           logout: false,
+          user: false,
           // user: {
-          //   url: '/api/v1/users',
-          //   method: 'get'
+          //   url: '/api/v1/users/fetch',
+          //   method: 'get',
+          //   propertyName: 'data'
           // },
           // avatars: {
           //   url: '/api/v1/avatars',

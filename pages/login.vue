@@ -12,9 +12,9 @@
             >
             <input
               type="email"
+              v-model="login.email"
               class="auth-form focus:outline-none bg-gray-bg focus:shadow-bg"
               placeholder="Write your email address here"
-              v-model="login.email"
             />
           </div>
         </div>
@@ -24,18 +24,18 @@
               >Password</label
             >
             <input
+              @keyup.enter="userLogin"
               type="password"
+              v-model="login.password"
               class="auth-form bg-gray-bg focus:outline-none focus:shadow-bg"
               placeholder="Write your password here"
-              v-model="login.password"
-              @keyup.enter="userLogin"
             />
           </div>
         </div>
         <div class="mb-6 mt-10">
           <div class="mb-4">
-              <!-- @click="userLogin" -->
             <button
+              @click="userLogin"
               class="
                 block
                 w-full
@@ -80,9 +80,13 @@ export default {
   methods: {
     async userLogin() {
       try {
-        let response = this.$auth.loginWith('local', { data: this.login })
+        let response = await this.$auth.loginWith('local', { data: this.login })
+        // .then(() => {
         this.$auth.setUser(response.data.data)
-        alert(response)
+        // })
+        console.log(response)
+        console.log(this.$store.state.auth.user)
+        this.$router.push('/')
       } catch (error) {
         console.log(error)
       }
