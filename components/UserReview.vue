@@ -1,8 +1,8 @@
 <template>
-  <section class="container mx-auto pt-24">
+  <section class="containerX mx-auto pt-24">
     <div class="flex justify-between items-center">
       <div class="w-auto">
-        <h2 class="text-3xl text-gray-900 mb-8">
+        <h2 class="text-3xl text-black-font font-medium mb-8">
           Lihat apa yang dikatakan <br />
           oleh klien kami
         </h2>
@@ -13,14 +13,14 @@
         <img src="/testimonial-line.svg" alt="" />
       </div>
       <div class="w-8/12 mt-16">
-        <h2 class="text-3xl text-gray-900 font-light">
+        <h2 class="text-2xl text-black-font font-light">
           “Funding at Moyu is very easy and simple. <br />
           Just need to tell us about your activities, <br /> 
           click and you've got funds.”
         </h2>
         <div class="testimonial-info mt-8">
           <div class="name text-xl font-semibold">Shopie Nicole</div>
-          <div class="title text-xl font-light text-gray-400">
+          <div class="title text-base font-light text-gray-400">
             Project Manager
           </div>
         </div>

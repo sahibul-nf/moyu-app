@@ -1,9 +1,10 @@
 <template>
   <div class="landing-page">
     <section class="landing-hero pt-8">
-      <!-- <div class="header__bg"></div> -->
-      <div class="container mx-auto relative">
+      <div class="container mx-auto">
         <Navbar />
+      </div>
+      <div class="containerX mx-auto relative">
         <div class="flex items-center pt-10 px-5 md:px-0">
           <div class="w-1/2">
             <h1 class="text-4xl text-purple-progress font-medium mb-5">
@@ -11,12 +12,14 @@
               untuk memulai & <u class="hero-underline">mendanai</u>
               kebutuhan mereka
             </h1>
-            <p class="text-black-font text-xl font-light mb-8">
-              Danai event terbaik anda agar dapat berjalan <br />
-              sesuai yang harapan
+            <p class="text-black-font text-lg font-light mb-8">
+              <!-- Danai event terbaik anda agar dapat berjalan <br />
+              sesuai harapan -->
+              Buat project/event terbaik anda menjadi nyata dengan <br />
+              mendapatkan support dari para backer terbaik
             </p>
             <button
-              @click="$router.push({ path: '#events' })"
+              @click="$router.push({ path: '#projects' })"
               class="
                 block
                 bg-green-button
@@ -27,9 +30,10 @@
                 py-3
                 text-xl
                 rounded-full
+                transition
               "
             >
-              Temukan Event
+              Get Started
             </button>
           </div>
           <div class="w-1/2 flex justify-center">
@@ -38,10 +42,10 @@
         </div>
       </div>
     </section>
-    <section class="container mx-auto pt-24">
+    <section class="containerX mx-auto pt-24">
       <div class="flex justify-between items-center mb-10">
         <div class="w-auto">
-          <h2 class="text-3xl text-gray-900 mb-8">
+          <h2 class="text-3xl text-black-font font-medium mb-8">
             Hanya butuh 3 langkah untuk <br />
             menjalankan event keren Anda!
           </h2>
@@ -58,7 +62,7 @@
             <img src="/step-1-illustration.svg" alt="" class="h-30 mb-8" />
           </figure>
           <div class="step-content">
-            <h3 class="font-medium">Sign Up</h3>
+            <h3 class="font-medium text-lg mb-2">Sign Up</h3>
             <p class="font-light">
               Daftarkan akun Anda dan mulailah <br />
               mendapatkan sponsor
@@ -70,7 +74,7 @@
             <img src="/step-2-illustration.svg" alt="" class="h-30 mb-8" />
           </figure>
           <div class="step-content">
-            <h3 class="font-medium">Open Project</h3>
+            <h3 class="font-medium text-lg mb-2">Open Project</h3>
             <p class="font-light">
               Kampanye kan event Anda semenarik
               <br />
@@ -84,7 +88,7 @@
             <img src="/step-3-illustration.svg" alt="" class="h-30 mb-8" />
           </figure>
           <div class="step-content">
-            <h3 class="font-medium">Execute</h3>
+            <h3 class="font-medium text-lg mb-2">Execute</h3>
             <p class="font-light">
               Saatnya buat event Anda <br />
               menjadi nyata.
@@ -93,10 +97,10 @@
         </div>
       </div>
     </section>
-    <section id="events" class="container mx-auto pt-24">
+    <section id="projects" class="transition containerX mx-auto pt-24">
       <div class="flex justify-between items-center">
         <div class="w-auto">
-          <h2 class="text-3xl text-gray-900 mb-8">
+          <h2 class="text-3xl text-black-font font-medium mb-8">
             Event baru yang bisa <br />
             anda support
           </h2>
@@ -104,7 +108,7 @@
         <div class="w-auto mt-5">
           <nuxt-link
             class="text-gray-900 hover:underline text-md font-medium"
-            to=""
+            to="/project"
             >View All</nuxt-link
           >
         </div>
@@ -130,14 +134,14 @@
                 v-if="campaign.image_url !== ''"
                 :src="$axios.defaults.baseURL + '/' + campaign.image_url"
                 alt=""
-                class="rounded-20 w-full h-60 object-cover"
+                class="rounded-20 w-full h-52 object-cover"
               />
               <div
                 v-else
                 class="
                   rounded-20
                   w-full
-                  h-60
+                  h-52
                   bg-gray-bg
                   text-gray-300
                   flex
@@ -202,7 +206,10 @@
             </div>
             <button
               @click="
-                $router.push({ name: 'projects', params: { id: campaign.id } })
+                $router.push({
+                  name: 'projects-id',
+                  params: { id: campaign.id },
+                })
               "
               class="
                 text-center
@@ -237,6 +244,15 @@ export default {
   async asyncData({ $axios }) {
     const campaigns = await $axios.$get('/api/v1/campaigns')
     return { campaigns }
+  },
+  openNotification() {
+    this.$vs.notification({
+      // flat: true,
+      position: 'top-right',
+      border: 'success',
+      title: 'title',
+      text: 'msg' + ' \u{1F60A}',
+    })
   },
 }
 </script>

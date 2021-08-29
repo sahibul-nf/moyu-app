@@ -80,16 +80,25 @@ export default {
   methods: {
     async userLogin() {
       try {
-        let response = await this.$auth.loginWith('local', { data: this.login })
-        // .then(() => {
-        this.$auth.setUser(response.data.data)
-        // })
-        console.log(response)
-        console.log(this.$store.state.auth.user)
-        this.$router.push('/')
+        const response = await this.$auth.loginWith('local', {
+          data: this.login,
+        })
+        this.openNotification('Welcome', response.data.meta.message, 'success')
+        this.$auth.setUser(response.data)
+        this.$router.push({ path: '/' })
       } catch (error) {
+        this.openNotification('Login is failed', 'Please re-check your input, and try again!', 'danger')
         console.log(error)
       }
+    },
+    openNotification(title, msg, color) {
+      this.$vs.notification({
+        // flat: true,
+        position: 'top-right',
+        border: color,
+        title: title,
+        text: msg + ' \u{1F60A}',
+      })
     },
   },
 }

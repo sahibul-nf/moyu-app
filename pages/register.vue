@@ -1,7 +1,7 @@
 <template>
-  <div class="h-screen flex justify-center items-center">
+  <div class="flex justify-center items-center">
     <div class="auth-background"></div>
-    <div class="w-auto md:w-2/4 lg:w-2/3 flex justify-center items-center">
+    <div class="w-auto py-5 md:w-2/4 lg:w-2/3 flex justify-center items-center">
       <div class="w-full lg:w-1/2 px-10 lg:px-0">
         <h2 class="font-normal mb-10 text-3xl text-black-font">
           Sign Up Account
@@ -15,7 +15,7 @@
               type="text"
               class="auth-form bg-gray-bg focus:outline-none focus:shadow-bg"
               placeholder="Write Your Name Here"
-              v-model="register.fullName"
+              v-model="register.name"
             />
           </div>
         </div>
@@ -55,13 +55,14 @@
               class="auth-form bg-gray-bg focus:outline-none focus:shadow-bg"
               placeholder="Type your password here"
               v-model="register.password"
+              @keyup.enter="userRegister"
             />
           </div>
         </div>
         <div class="mb-6 mt-10">
           <div class="mb-4">
             <button
-              @click="$router.push({ path: '/upload' })"
+              @click="userRegister"
               class="
                 block
                 w-full
@@ -98,7 +99,7 @@ export default {
   data() {
     return {
       register: {
-        fullName: '',
+        name: '',
         occupation: '',
         email: '',
         password: '',
@@ -106,8 +107,18 @@ export default {
     }
   },
   methods: {
-    
-  }
+    async userRegister() {
+      try {
+        let response = await this.$axios.post('/api/v1/users', this.register)
+        console.log(response.data.data.token)
+        this.$auth
+          .setUserToken(response.data.data.token)
+          .then(() => this.$router.push({ path: '/upload-avatar' }))
+      } catch (error) {
+        console.log(error)
+      }
+    },
+  },
 }
 </script>
 

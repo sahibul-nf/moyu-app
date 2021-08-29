@@ -5,19 +5,22 @@
         <Navbar />
       </div>
     </section>
-    <section class="container mx-auto pt-16">
+    <section class="containerX mx-auto pt-16">
       <div class="flex justify-between items-center mb-8">
         <div class="w-3/4 mr-6">
-          <h2 class="text-4xl text-black-font mb-2 font-medium">Dashboard</h2>
+          <h2 class="text-3xl text-black-font mb-2 font-medium">Dashboard</h2>
           <ul class="flex mt-4">
             <li class="mr-6">
-              <nuxt-link class="text-gray-300 hover:text-black-font" to="/dashboard/">
+              <nuxt-link
+                class="text-gray-300 hover:text-black-font"
+                to="/dashboard/"
+              >
                 Your Projects
               </nuxt-link>
             </li>
             <li class="mr-6">
               <nuxt-link
-                class="text-black-font font-bold"
+                class="text-black-font font-semibold"
                 to="/dashboard/transactions"
               >
                 Your Transactions
@@ -28,43 +31,71 @@
       </div>
 
       <div class="block mb-2">
-        <div class="w-full lg:max-w-full lg:flex mb-4">
-          <!-- <div
+        <p class="text-gray-400 mb-3">
+          Total Transaction : {{ transactions.length }}
+        </p>
+        <div
+          class="h-40 w-full lg:max-w-full lg:flex mb-4"
+          v-for="transaction in transactions"
+          :key="transaction.id"
+        >
+          <img
             class="
-              h-48
-              lg:h-auto lg:w-48
+              lg:h-auto lg:w-52
               flex-none
-              bg-cover
+              object-cover
               rounded-l-20
               text-center
               overflow-hidden
             "
-            style="background-color: #bbb"
-          ></div> -->
+            :src="
+              $axios.defaults.baseURL + '/' + transaction.campaign.image_url
+            "
+            alt="transaction Image"
+            v-if="transaction.campaign.image_url !== ''"
+          />
           <div
-              class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-l-20 text-center overflow-hidden"
-              style="
-                background-image: url('https://tailwindcss.com/img/card-left.jpg');
-              "
-            ></div>
+            v-else
+            class="
+              rounded-l-20
+              lg:w-52
+              h-auto
+              bg-gray-bg
+              text-gray-400
+              flex-none
+            "
+          >
+            <div class="flex items-center justify-center h-full">
+              <div class="text-xl">No Image</div>
+            </div>
+          </div>
           <div
             class="
               w-full
-              border-2 border-gray-300 bg-white rounded-r-20
+              border-r-2 border-t-2 border-b-2 border-gray-300
+              bg-white
+              rounded-r-20
               p-8
               flex flex-col
-              justify-between
+              justify-center
               leading-normal
             "
           >
-            <div>
-              <div class="text-black-font font-bold text-xl mb-1">
-                Cari sponsor untuk moyu
+            <!-- <div class="mb-8"> -->
+              <div class="text-black-font font-semibold text-xl mb-2">
+                {{ transaction.campaign.name }}
               </div>
-              <p class="text-sm font-light text-black-font flex items-center mb-2">
-                Rp. 200.000.000 &middot; 12 September 2020
+              <p class="text-sm text-black-font flex items-center mb-2">
+                Rp
+                {{ new Intl.NumberFormat().format(transaction.amount + " ") }}
+                <br/>
+                {{ " " + new Date(Date.parse(transaction.created_at)) }}
               </p>
-            </div>
+              <p class="text-black-font text-sm capitalize">
+                Status :
+                {{ transaction.status }}
+              </p>
+            <!-- </div> -->
           </div>
         </div>
       </div>
@@ -74,3 +105,14 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  middleware: 'auth',
+  async asyncData({ $axios }) {
+    const res = await $axios.$get('/api/v1/transactions')
+    const transactions = res.data
+    return { transactions }
+  },
+}
+</script>

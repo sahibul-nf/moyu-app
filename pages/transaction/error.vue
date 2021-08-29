@@ -2,18 +2,20 @@
   <div class="container mx-auto h-screen flex justify-center items-center">
     <div class="w-full lg:w-1/3 px-10 lg:px-0">
       <div class="flex justify-center items-center mx-auto mt-6 mb-8">
-        <img src="/success-illustration.svg" alt="" class="w-full" />
+        <!-- <img src="/404-illustration.svg" alt="" class="w-full" /> -->
+        <AstronotError />
       </div>
-      <h2 class="font-medium mb-3 text-3xl text-center">Welcome onboard!</h2>
+      <h2 class="font-medium mb-3 text-3xl text-center">
+        Oops! something wrong
+      </h2>
       <p class="text-center font-light">
-        Your account just registered
-        <br />
-        into our system
+        An error occured when your transaction. <br />
+        Please try again later!
       </p>
       <div class="mb-4 mt-6">
         <div class="mb-3">
           <button
-            @click="fetchUserData"
+            @click="$router.push({ path: '/' })"
             class="
               block
               w-full
@@ -27,7 +29,7 @@
               rounded-full
             "
           >
-            Start Explore
+            Fund another Project
           </button>
         </div>
       </div>
@@ -37,18 +39,6 @@
 
 <script>
 export default {
-  layout: 'success',
-  methods: {
-    async fetchUserData() {
-      await this.$auth
-        .fetchUser()
-        .then(() => {
-          this.$router.push({ path: '/' })
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-    },
-  },
+  layout: 'error',
 }
 </script>

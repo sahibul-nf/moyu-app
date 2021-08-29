@@ -41,7 +41,19 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [{
+      src: '~plugins/vuesax.js',
+      ssr: false
+    },
+    {
+      src: '~plugins/vue-slick-carousel.js',
+      ssr: false
+    },
+    {
+      src: '~plugins/lottie-player.js',
+      ssr: false
+    },
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -64,39 +76,33 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: "http://55fb9f38fa7c.ngrok.io"
+    baseURL: "http://localhost:8080"
   },
 
   auth: {
     strategies: {
       local: {
-        // token: {
-        //   property: 'data.token',
-        //   global: true,
-        //   // required: true,
-        //   // type: 'Bearer'
-        // },
+        token: {
+          property: 'data.token',
+          global: true,
+          // required: true,
+          // type: 'Bearer'
+        },
+        user: {
+          property: false,
+          // autoFetch: true
+        },
         endpoints: {
-          register: {
-            url: '/api/v1/users',
-            method: 'post'
-          },
           login: {
             url: '/api/v1/sessions',
             method: 'post',
-            propertyName: 'data.token'
           },
           logout: false,
-          user: false,
-          // user: {
-          //   url: '/api/v1/users/fetch',
-          //   method: 'get',
-          //   propertyName: 'data'
-          // },
-          // avatars: {
-          //   url: '/api/v1/avatars',
-          //   method: 'post'
-          // },
+          // user: false,
+          user: {
+            url: '/api/v1/users/fetch',
+            method: 'get',
+          },
         }
       }
     }

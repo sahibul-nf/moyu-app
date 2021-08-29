@@ -29,10 +29,23 @@ module.exports = {
       borderRadius: {
         20: "20px",
       },
+      loading: {
+        color: 'blue',
+        height: '5px'
+      },
     },
   },
   fontFamily: {
     sans: ["Poppins", "sans-serif"],
+  },
+  loading: {
+    color: 'blue',
+    height: '5px'
+  },
+  loadingIndicator: {
+    name: 'circle',
+    color: '#3B8070',
+    background: 'white'
   },
   variants: {
     extend: {},
