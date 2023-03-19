@@ -76,7 +76,8 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: "https://moyu-api.herokuapp.com"
+    baseURL: "https://web-production-4d1b.up.railway.app/"
+    // baseURL: "https://moyu-api.herokuapp.com"
     // baseURL: "http://localhost:8080"
   },
 
